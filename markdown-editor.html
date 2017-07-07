@@ -7,6 +7,7 @@
 <script src="../node_modules/gem/dist/Gem.umd.js"></script>
 <script src="../ExtensionTester.umd.js"></script>
 
+<script src="./node_modules/observe/generatedBuilds/observe.umd.js" charset="utf-8"></script>
 <script src="./node_modules/simplemde/dist/simplemde.min.js" charset="utf-8"></script>
 <script>
 
@@ -18,22 +19,42 @@ var mdEditor = proto(Gem, function (superclass) {
     this.name = "mdEditor";
 
     // Plugin Constructor - required
-    this.build = function (dataModel, options, api) {
+    this.build = function (ticket, options, api) {
         if (options === undefined) options = {};
         this.label = options.label;
 
         this.mdContainer = Gem.TextArea("mdContainer");
         this.add(this.mdContainer);
 
+        var mdeConfig = {
+            element: this.mdContainer.domNode,
+            // initialValue: "Hello world!",
+            placeholder: "description",
+            shortcuts: {
+                drawTable: "Cmd-Alt-T"
+            },
+            status: false,
+            status: ["lines", "words", "cursor"],
+        };
 
-        // After plugin is attached to document
-        this.on('attach', function () {
+        // Instantiate Markdown Editor
+        var simplemde = new SimpleMDE(mdeConfig);
 
-            this.simplemde = new SimpleMDE({ element: this.mdContainer.domNode });
-
+        // Save and Load
+        var ignoreObject = {};
+        var fieldObservee = ticket.get(options.field);
+        // Initialize Markdown Editor
+        simplemde.value(fieldObservee.subject);
+        // Save
+        simplemde.codemirror.on("change", function () {
+            ticket.data({ignore: ignoreObject}).set(options.field, simplemde.value());
         });
-
-        
+        // Load
+        fieldObservee.on("change", function (change) {
+            if (!(change.data && ignoreObject === change.data.ignore)) {
+                simplemde.value(fieldObservee.subject);
+            }
+        });
 
     };
 
@@ -48,15 +69,20 @@ var mdEditor = proto(Gem, function (superclass) {
 /***** Virtual Ticket *****/
 
 // Create an instance of the plugin
-ExtensionTester(
-    mdEditor,
-    {
-        label: "mdEditor",
-        field: "content"
-    },
-    {
-        showEditor: true
-    }
-);
+
+ExtensionTester.Api.Ticket.create().then(function(newOne) {
+    newOne.subject.content = 'Stored data'
+
+    ExtensionTester(mdEditor, { label: "mdEditor", field: "content" }, { ticketId: newOne.subject._id, showEditor: true });
+
+}).done()
+
+// ExtensionTester.Api.Ticket.create().then(function(newOne) {
+//     newOne.subject.status = 'Open'
+//
+//     ExtensionTester(TestExtension, {statusField:'status', states: {
+//         Open:'red', 'Accepted':'blue', 'Approved':'purple', 'In-progress':'orange', 'Complete':'green'
+//     }}, {ticketId: newOne.subject._id, showEditor:true})
+// }).done()
 
 </script>
