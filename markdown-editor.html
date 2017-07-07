@@ -1,0 +1,62 @@
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./node_modules/simplemde/dist/simplemde.min.css">
+</head>
+<body></body>
+<script src="../node_modules/proto/dist/proto.umd.js"></script>
+<script src="../node_modules/gem/dist/Gem.umd.js"></script>
+<script src="../ExtensionTester.umd.js"></script>
+
+<script src="./node_modules/simplemde/dist/simplemde.min.js" charset="utf-8"></script>
+<script>
+
+/***** Plugin *****/
+
+// A plugin class
+var mdEditor = proto(Gem, function (superclass) {
+    // Plugin Name - required
+    this.name = "mdEditor";
+
+    // Plugin Constructor - required
+    this.build = function (dataModel, options, api) {
+        if (options === undefined) options = {};
+        this.label = options.label;
+
+        this.mdContainer = Gem.TextArea("mdContainer");
+        this.add(this.mdContainer);
+
+
+        // After plugin is attached to document
+        this.on('attach', function () {
+
+            this.simplemde = new SimpleMDE({ element: this.mdContainer.domNode });
+
+        });
+
+        
+
+    };
+
+
+    // Plugin Styling - optional
+    this.style =  Gem.Style({
+
+    });
+
+});
+
+/***** Virtual Ticket *****/
+
+// Create an instance of the plugin
+ExtensionTester(
+    mdEditor,
+    {
+        label: "mdEditor",
+        field: "content"
+    },
+    {
+        showEditor: true
+    }
+);
+
+</script>
