@@ -1,6 +1,6 @@
 # Tixit-md
 
-A markdown editor to make creating easier-to-read documentation for Tixit.
+A markdown editor plugin to make creating easier-to-read documentation for Tixit.
 
 ## Dependency
 The  following are APIs that this application is dependent on:
