@@ -9,7 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "build-modules": "^2.1.0",
     "observe": "*",
     "simplemde": "*"
+  },
+  "devDependencies": {
+    "raw-loader": "^0.5.1"
   }
 }

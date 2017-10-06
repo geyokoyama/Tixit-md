@@ -1,3 +1,5 @@
+var SimpleMDE = require('simplemde');
+
 registerPlugin(proto(Gem, function () {
     // Plugin Name - required
     this.name = "MarkdownEditor";
@@ -11,8 +13,6 @@ registerPlugin(proto(Gem, function () {
 
     // Plugin Constructor - required
     this.build = function (ticket, options, api) {
-        if (options === undefined) options = {};
-        if (options.field === null) options.field = "content";
 
         this.mdContainer = TextArea("mdContainer");
         this.add(this.mdContainer);
@@ -30,14 +30,14 @@ registerPlugin(proto(Gem, function () {
 
         // Save and Load
         var ignoreObject = {};
-        var fieldObservee = ticket.get(options.field);
+        var fieldObservee = ticket.get(options.subject.contentField);
         // Initialize Markdown Editor
         simplemde.value(fieldObservee.subject);
         // Save
-        simplemde.codemirror.on("change", function () {
+       simplemde.codemirror.on("change", function () {
 
-            if (simplemde.value() !== ticket.get(options.field).subject){
-                ticket.data({ignore: ignoreObject}).set(options.field, simplemde.value());
+            if (simplemde.value() !== fieldObservee.subject){
+                ticket.data({ignore: ignoreObject}).set(options.subject.contentField, simplemde.value());
             }
         });
 
@@ -50,7 +50,7 @@ registerPlugin(proto(Gem, function () {
 
         this.on("attach", function () {
             // Generate <style> in <head>
-            var simplemdeStylesheet = require("raw-loader!https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css");
+            var simplemdeStylesheet = require("raw-loader!./node_modules/simplemde/dist/simplemde.min.css");
             var style = document.createElement('style');
             style.innerHTML = simplemdeStylesheet;
             style.innerHTML += ".CodeMirror, .CodeMirror-scroll { min-height: 50px }";
