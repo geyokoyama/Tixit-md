@@ -20,7 +20,10 @@ The  following are APIs that this application is dependent on:
 * Allow direct editing in wysiwygmode (low priority)
 
 ## Pictures
+This is what it looks like when you type:  
 ![Not rendered](https://github.com/GeorgeEYokoyama/Tixit-md/blob/master/plugin-images/preRender.PNG)
+
+And this is how it looks like when you click on the eye icon on the top right:  
 ![Rendered](https://github.com/GeorgeEYokoyama/Tixit-md/blob/master/plugin-images/postRender.PNG)
 
 ## License
