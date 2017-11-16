@@ -30,14 +30,14 @@ registerPlugin(proto(Gem, function () {
 
         // Save and Load
         var ignoreObject = {};
-        var fieldObservee = ticket.get(options.subject.contentField);
+        var fieldObservee = ticket.get(options.subject.description);
         // Initialize Markdown Editor
         simplemde.value(fieldObservee.subject);
         // Save
        simplemde.codemirror.on("change", function () {
 
             if (simplemde.value() !== fieldObservee.subject){
-                ticket.data({ignore: ignoreObject}).set(options.subject.contentField, simplemde.value());
+                ticket.data({ignore: ignoreObject}).set(options.subject.description, simplemde.value());
             }
         });
 
