@@ -26,5 +26,13 @@ This is what it looks like when you type:
 And this is how it looks like when you click on the eye icon on the top right:  
 ![Rendered](https://github.com/GeorgeEYokoyama/Tixit-md/blob/master/plugin-images/postRender.PNG)
 
+## How to Contribute
+How to submit a pull request:
+1. Fork the repository
+2. Clone your forked repo on your machine and run `npm install` at its root
+3. Edit
+4. Commit and push your changes
+5. Submit a pull request: [http://help.github.com/articles/creating-a-pull-request](http://help.github.com/articles/creating-a-pull-request)
+
 ## License
 Released under the MIT license: [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
