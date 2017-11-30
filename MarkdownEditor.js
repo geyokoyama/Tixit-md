@@ -3,11 +3,6 @@ var SimpleMDE = require('simplemde');
 registerPlugin(proto(Gem, function () {
     // Plugin Name - required
     this.name = "MarkdownEditor";
-
-    this.initialize = function(options) {
-      return {
-        field: "description"
-      }
     }
 
     // Plugin Styling - optional

@@ -10,6 +10,7 @@ The plugin needs configuring in both the layout and the schema in order to be us
 2. Then click `Edit Schemas`, then `Add new schema`. Finally, click `Add Field` and enter the name as `field`.  
 It should look like the following:  
 ![schema picture](https://github.com/GeorgeEYokoyama/Tixit-md/blob/master/plugin-images/schema.PNG)  
+3. 
 
 ## Dependency
 The  following are APIs that this application is dependent on:
