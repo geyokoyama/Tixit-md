@@ -2,7 +2,6 @@ var SimpleMDE = require('simplemde')
 
 registerPlugin(proto(Gem, function () {
     this.name = "MarkdownEditor"
-    }
 
     this.requireFields = function(options) {
         var result = {}
