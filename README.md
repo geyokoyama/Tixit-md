@@ -7,7 +7,7 @@ For more information about Tixit plugins go here: [http://docs.tixit.me/d/Plugin
 ## How to Use
 The plugin needs configuring in both the layout and the schema in order to be used.  
 1. Go into the Tixit Settings and choose `Edit Layouts`. Create a layout with the `Markdown Editor` added.  
-2. Then click `Edit Schemas`, then `Add new schema`. Finally, click `Add Field` and enter the name as `description`.  
+2. Then click `Edit Schemas`, then `Add new schema`. Finally, click `Add Field` and enter the name as `field`.  
 It should look like the following:  
 ![schema picture](https://github.com/GeorgeEYokoyama/Tixit-md/blob/master/plugin-images/schema.PNG)  
 

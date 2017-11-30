@@ -8,8 +8,8 @@ registerPlugin(proto(Gem, function () {
         var result = {}
         result[options.field] = {type:'text'}
         return result
-    }
-    
+    }    
+
     // Plugin Styling - optional
     this.getStyle =  function () {
         return Style({
@@ -33,6 +33,7 @@ registerPlugin(proto(Gem, function () {
 
         // Instantiate Markdown Editor
         var simplemde = new SimpleMDE(mdeConfig);
+        simplemde.togglePreview()
 
         // Save and Load
         var ignoreObject = {};
