@@ -27,17 +27,18 @@ registerPlugin(proto(Gem, function () {
 
         // Instantiate Markdown Editor
         var simplemde = new SimpleMDE(mdeConfig);
+        simplemde.togglePreview()
 
         // Save and Load
         var ignoreObject = {};
-        var fieldObservee = ticket.get(options.subject.description);
+        var fieldObservee = ticket.get(options.subject.field);
         // Initialize Markdown Editor
         simplemde.value(fieldObservee.subject);
         // Save
        simplemde.codemirror.on("change", function () {
 
             if (simplemde.value() !== fieldObservee.subject){
-                ticket.data({ignore: ignoreObject}).set(options.subject.description, simplemde.value());
+                ticket.data({ignore: ignoreObject}).set(options.subject.field, simplemde.value());
             }
         });
 
