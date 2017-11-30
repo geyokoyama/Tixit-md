@@ -1,16 +1,22 @@
-![picture of markdown editor without content](https://github.com/GeorgeEYokoyama/Tixit-md/blob/master/plugin-images/default.PNG)  
+![picture of markdown editor without content](https://github.com/GeorgeEYokoyama/Tixit-md/blob/master/plugin-images/default.PNG)
 # Tixit-md
 
-A markdown editor plugin to make creating easier-to-read documentation for [Tixit](https://tixit.me).  
+A markdown editor plugin to make creating easier-to-read documentation for [Tixit](https://tixit.me).
 For more information about Tixit plugins go here: [http://docs.tixit.me/d/Plugin_API](http://docs.tixit.me/d/Plugin_API)
 
+![Not rendered](https://github.com/GeorgeEYokoyama/Tixit-md/blob/master/plugin-images/preRender.PNG)
+
+![Rendered](https://github.com/GeorgeEYokoyama/Tixit-md/blob/master/plugin-images/postRender.PNG)
+
 ## How to Use
-The plugin needs configuring in both the layout and the schema in order to be used.  
-1. Go into the Tixit Settings and choose `Edit Layouts`. Create a layout with the `Markdown Editor` added.  
-2. Then click `Edit Schemas`, then `Add new schema`. Finally, click `Add Field` and enter the name as `field`.  
-It should look like the following:  
-![schema picture](https://github.com/GeorgeEYokoyama/Tixit-md/blob/master/plugin-images/schema.PNG)  
-3. 
+The plugin needs configuring in both the layout and the schema in order to be used.
+1. Go into the Tixit Settings and choose `Edit Layouts`. Create a layout with the `Markdown Editor` added.
+2. Then click `Edit Schemas`, then `Add new schema`. Finally, click `Add Field` and enter the name as `field`.
+It should look like the following:
+![schema picture](https://github.com/GeorgeEYokoyama/Tixit-md/blob/master/plugin-images/schema.PNG)
+3. Finally, go back into `Edit Layouts` and click on `Markdown Editor` that you added.
+Make sure the configuration looks like the following:
+![schema picture](https://github.com/GeorgeEYokoyama/Tixit-md/blob/master/plugin-images/config.PNG)
 
 ## Dependency
 The  following are APIs that this application is dependent on:
@@ -19,13 +25,6 @@ The  following are APIs that this application is dependent on:
 ## Todo
 * Reduce toolbar height (low priority)
 * Allow direct editing in wysiwygmode (low priority)
-
-## Pictures
-This is what it looks like when you type:  
-![Not rendered](https://github.com/GeorgeEYokoyama/Tixit-md/blob/master/plugin-images/preRender.PNG)
-
-And this is how it looks like when you click on the eye icon on the top right:  
-![Rendered](https://github.com/GeorgeEYokoyama/Tixit-md/blob/master/plugin-images/postRender.PNG)
 
 ## How to Contribute
 How to submit a pull request:
