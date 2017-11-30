@@ -15,6 +15,13 @@ registerPlugin(proto(Gem, function () {
         })
     }
 
+    // Generate <style> in <head>
+    var simplemdeStylesheet = require("raw-loader!./node_modules/simplemde/dist/simplemde.min.css")
+    var style = document.createElement('style')
+    style.innerHTML = simplemdeStylesheet
+    style.innerHTML += ".CodeMirror, .CodeMirror-scroll { min-height: 50px }"
+    document.head.appendChild(style)
+
     this.build = function (ticket, options, api) {
 
         this.mdContainer = TextArea("mdContainer")
@@ -50,20 +57,6 @@ registerPlugin(proto(Gem, function () {
             if (!(change.data && ignoreObject === change.data.ignore)) {
                 simplemde.value(fieldObservee.subject)
             }
-        })
-
-        this.on("attach", function () {
-            // Generate <style> in <head>
-            var simplemdeStylesheet = require("raw-loader!./node_modules/simplemde/dist/simplemde.min.css")
-            var style = document.createElement('style')
-            style.innerHTML = simplemdeStylesheet
-            style.innerHTML += ".CodeMirror, .CodeMirror-scroll { min-height: 50px }"
-            document.head.appendChild(style)
-
-            // Generate <script> in <head>
-            var script = document.createElement('script')
-            script.setAttribute('src', 'https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js')
-            document.head.appendChild(script)
         })
     }
 }))
