@@ -1,4 +1,4 @@
-![picture of markdown editor without content]()  
+![picture of markdown editor without content](https://github.com/GeorgeEYokoyama/Tixit-md/blob/master/plugin-images/default.PNG)  
 # Tixit-md
 
 A markdown editor plugin to make creating easier-to-read documentation for [Tixit](https://tixit.me).  
@@ -9,7 +9,7 @@ The plugin needs configuring in both the layout and the schema in order to be us
 1. Go into the Tixit Settings and choose `Edit Layouts`. Create a layout with the `Markdown Editor` added.  
 2. Then click `Edit Schemas`, then `Add new schema`. Finally, click `Add Field` and enter the name as `description`.  
 It should look like the following:  
-![schema picture]()  
+![schema picture](https://github.com/GeorgeEYokoyama/Tixit-md/blob/master/plugin-images/schema.PNG)  
 
 ## Dependency
 The  following are APIs that this application is dependent on:
@@ -20,8 +20,19 @@ The  following are APIs that this application is dependent on:
 * Allow direct editing in wysiwygmode (low priority)
 
 ## Pictures
-![Not rendered]()
-![Rendered]()
+This is what it looks like when you type:  
+![Not rendered](https://github.com/GeorgeEYokoyama/Tixit-md/blob/master/plugin-images/preRender.PNG)
+
+And this is how it looks like when you click on the eye icon on the top right:  
+![Rendered](https://github.com/GeorgeEYokoyama/Tixit-md/blob/master/plugin-images/postRender.PNG)
+
+## How to Contribute
+How to submit a pull request:
+1. Fork the repository
+2. Clone your forked repo on your machine and run `npm install` at its root
+3. Edit
+4. Commit and push your changes
+5. Submit a pull request: [http://help.github.com/articles/creating-a-pull-request](http://help.github.com/articles/creating-a-pull-request)
 
 ## License
 Released under the MIT license: [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
