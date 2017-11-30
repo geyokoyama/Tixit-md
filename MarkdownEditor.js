@@ -4,6 +4,12 @@ registerPlugin(proto(Gem, function () {
     // Plugin Name - required
     this.name = "MarkdownEditor";
 
+    this.initialize = function(options) {
+      return {
+        field: "description"
+      }
+    }
+
     // Plugin Styling - optional
     this.getStyle =  function () {
         return Style({
