@@ -30,13 +30,13 @@ registerPlugin(proto(Gem, function () {
 
         // Instantiate Markdown Editor
         var simplemde = new SimpleMDE(mdeConfig)
-        simplemde.togglePreview()
 
         // Save and Load
         var ignoreObject = {}
         var fieldObservee = ticket.get(options.subject.field)
         // Initialize Markdown Editor
         simplemde.value(fieldObservee.subject)
+        simplemde.togglePreview()
         // Save
        simplemde.codemirror.on("change", function () {
 
